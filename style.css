@@ -1,0 +1,544 @@
+html{
+    scroll-behavior:smooth;
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f4f7f8;
+    color:#333;
+}
+
+/* Header */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    background:rgba(0,0,0,0.6);
+    backdrop-filter:blur(8px);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 60px;
+    z-index:1000;
+}
+
+.logo{
+    color:white;
+    font-size:28px;
+    font-weight:bold;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:25px;
+    font-size:18px;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#ff9800;
+}
+
+/* Hero Section */
+
+.hero{
+    position:relative;
+    width:100%;
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+}
+
+.hero .slider{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+
+.hero .slide{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+    opacity:0;
+    transition:opacity 1s ease-in-out;
+}
+
+.hero .slide.active{
+    opacity:1;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.45);
+    z-index:1;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    width:80%;
+}
+
+.hero h1{
+    font-size:65px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:22px;
+    line-height:1.6;
+}
+
+.buttons{
+    margin-top:35px;
+}
+
+.book,
+.explore{
+    padding:15px 35px;
+    border:none;
+    border-radius:35px;
+    font-size:18px;
+    cursor:pointer;
+    margin:10px;
+    transition:0.3s;
+}
+
+.book{
+    background:#ff9800;
+    color:white;
+}
+
+.explore{
+    background:white;
+    color:#333;
+}
+
+.book:hover,
+.explore:hover{
+    transform:translateY(-5px);
+}
+
+/* Treks */
+
+.treks{
+    padding:80px 60px;
+    text-align:center;
+}
+
+.treks h2{
+    font-size:40px;
+    color:#0b5d3b;
+    margin-bottom:40px;
+}
+
+.trek-container{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:30px;
+}
+
+.trek-card{
+    width:320px;
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+    transition:0.3s;
+}
+
+.trek-card:hover{
+    transform:translateY(-10px);
+}
+
+.trek-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    display:block;
+}
+
+.trek-card h3{
+    margin:20px 0 10px;
+    color:#0b5d3b;
+}
+
+.trek-card p{
+    margin:10px;
+}
+
+.trek-card button{
+    background:#ff9800;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:30px;
+    margin:20px;
+    cursor:pointer;
+    transition:0.3s;
+}
+.trek-card button:hover{
+    background:#e68900;
+    transform:scale(1.05);
+}
+/* About */
+
+.about{
+    background:#0b5d3b;
+    color:white;
+    padding:80px 60px;
+    text-align:center;
+}
+
+.about h2{
+    font-size:40px;
+    margin-bottom:40px;
+}
+
+.about-box{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.about-box div{
+    background:rgba(255,255,255,0.12);
+    padding:25px;
+    border-radius:15px;
+}
+/* Stats Section */
+
+.stats{
+    background:#0b5d3b;
+    color:white;
+    padding:60px 20px;
+    display:flex;
+    justify-content:space-around;
+    flex-wrap:wrap;
+    text-align:center;
+}
+
+.stat-box{
+    margin:20px;
+}
+
+.stat-box h2{
+    font-size:45px;
+    margin-bottom:10px;
+}
+
+.stat-box p{
+    font-size:18px;
+}
+/* Footer */
+
+footer{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:40px;
+}
+
+footer h2{
+    margin-bottom:15px;
+}
+
+footer p{
+    margin:8px;
+}
+
+/* Mobile Responsive */
+
+@media(max-width:768px){
+
+header{
+    flex-direction:column;
+    padding:15px;
+}
+
+nav{
+    margin-top:10px;
+}
+
+nav a{
+    margin:8px;
+    display:inline-block;
+}
+
+.hero h1{
+    font-size:40px;
+}
+
+.hero p{
+    font-size:18px;
+}
+
+.hero-content{
+    width:90%;
+}
+
+.treks,
+.about{
+    padding:60px 20px;
+}
+}/* Gallery */
+
+.gallery{
+    padding:80px 60px;
+    text-align:center;
+}
+
+.gallery h2{
+    font-size:40px;
+    color:#0b5d3b;
+    margin-bottom:40px;
+}
+
+.gallery-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:20px;
+}
+
+.gallery-container img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:15px;
+    transition:.4s;
+    cursor:pointer;
+}
+
+.gallery-container img:hover{
+    transform:scale(1.05);
+}/* Booking */
+
+.booking{
+    padding:80px 20px;
+    text-align:center;
+    background:#f8f8f8;
+}
+
+.booking h2{
+    font-size:40px;
+    color:#0b5d3b;
+    margin-bottom:30px;
+}
+
+.booking-form{
+    max-width:600px;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.booking-form input,
+.booking-form select,
+.booking-form textarea{
+    padding:15px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    font-size:16px;
+}
+
+.booking-form textarea{
+    height:120px;
+    resize:none;
+}
+
+.booking-form button{
+    background:#ff9800;
+    color:white;
+    border:none;
+    padding:15px;
+    border-radius:30px;
+    font-size:18px;
+    cursor:pointer;
+}/* WhatsApp Button */
+
+.whatsapp{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    width:60px;
+    height:60px;
+    background:#25D366;
+    color:white;
+    font-size:30px;
+    text-decoration:none;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+    z-index:1000;
+    transition:0.3s;
+}
+
+.whatsapp:hover{
+    transform:scale(1.1);
+}
+.location{
+    padding:80px 20px;
+    text-align:center;
+}
+
+.location h2{
+    font-size:40px;
+    color:#0b5d3b;
+    margin-bottom:30px;
+}
+
+.location iframe{
+    border-radius:15px;
+}.adventure-heading {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #2e7d32;            /* ग्रीन/नेचर कलर */
+    font-size: 28px;            /* टेक्स्ट का साइज़ */
+    font-weight: bold;          /* मोटा/बोल्ड अक्षर */
+    border-left: 5px solid #81c784; /* बाएँ तरफ़ सुंदर सी हरी पट्टी */
+    padding-left: 12px;        /* टेक्स्ट और पट्टी के बीच की दूरी */
+    margin: 20px 0;             /* ऊपर और नीचे थोड़ी जगह (Spacing) */
+}/* style.css */
+h3 {
+    font-family: 'Poppins', sans-serif;
+    color: #00e676; /* एक्सीडेंट ग्रीन/नियॉन टच जो डार्क थीम पर बहुत चमकता है */
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}/* Booking Section Styling */
+.booking-section {
+    padding: 60px 20px;
+    background-color: #121212; /* Dark background */
+    color: #ffffff;
+}
+
+.booking-container {
+    max-width: 650px;
+    margin: 0 auto;
+    background: #1e1e1e;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+    border: 1px solid #2a2a2a;
+}
+
+.booking-container h2 {
+    color: #00e676; /* Accent Green color */
+    font-size: 2rem;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.booking-container p {
+    text-align: center;
+    color: #aaa;
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: #ddd;
+    font-weight: 500;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #333;
+    background: #2b2b2b;
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s;
+}
+
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus {
+    border-color: #00e676;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+/* Members Section Grid */
+.members-title label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #00e676;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.members-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #00e676;
+    color: #000;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background-color: #00c853;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    .form-row, .members-grid {
+        grid-template-columns: 1fr;
+    }
+    .booking-container {
+        padding: 25px;
+    }
+}
