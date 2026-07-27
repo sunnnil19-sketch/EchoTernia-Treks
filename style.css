@@ -613,4 +613,174 @@ padding:20px;
 display:flex;
 }
 
+}/* ===== HERO SECTION ===== */
+
+.hero{
+    height:100vh;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    z-index:1;
+}
+
+.hero-content{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    text-align:center;
+    color:white;
+    z-index:2;
+    width:90%;
+}
+
+.hero-content h1{
+    font-size:60px;
+    margin-bottom:20px;
+    text-shadow:2px 2px 10px black;
+}
+
+.hero-content p{
+    font-size:22px;
+    max-width:700px;
+    margin:auto;
+    line-height:1.7;
+}
+
+.buttons{
+    margin-top:35px;
+}
+
+.btn{
+    display:inline-block;
+    text-decoration:none;
+    padding:15px 35px;
+    border-radius:40px;
+    font-size:18px;
+    font-weight:bold;
+    transition:.3s;
+    margin:10px;
+}
+
+.book-btn{
+    background:#2E7D32;
+    color:white;
+}
+
+.book-btn:hover{
+    background:#1B5E20;
+}
+
+.explore-btn{
+    border:2px solid white;
+    color:white;
+}
+
+.explore-btn:hover{
+    background:white;
+    color:#1B5E20;
+}
+
+@media(max-width:768px){
+
+.hero-content h1{
+font-size:38px;
+}
+
+.hero-content p{
+font-size:17px;
+}
+
+.btn{
+display:block;
+margin:15px auto;
+width:220px;
+}
+
+}/* ===== HERO SLIDER ===== */
+
+.slider{
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    z-index:0;
+}
+
+.slide{
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    opacity:0;
+    transition:opacity 1.5s ease-in-out;
+}
+
+.slide.active{
+    opacity:1;
+}/*==========================
+  FIRST EXPLORER
+===========================*/
+
+.first-explorer{
+    background:linear-gradient(135deg,#0b5d1e,#2e7d32);
+    color:white;
+    text-align:center;
+    padding:80px 20px;
+}
+
+.explorer-content{
+    max-width:900px;
+    margin:auto;
+}
+
+.first-explorer h2{
+    font-size:42px;
+    margin-bottom:20px;
+}
+
+.first-explorer p{
+    font-size:20px;
+    line-height:1.8;
+    margin-bottom:35px;
+}
+
+.explorer-info{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-bottom:40px;
+}
+
+.info-box{
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(8px);
+    padding:15px 25px;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+@media(max-width:768px){
+
+.first-explorer h2{
+font-size:30px;
+}
+
+.first-explorer p{
+font-size:17px;
+}
+
+.explorer-info{
+flex-direction:column;
+align-items:center;
+}
+
 }
