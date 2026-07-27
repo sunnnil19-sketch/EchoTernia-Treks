@@ -541,4 +541,76 @@ h3 {
     .booking-container {
         padding: 25px;
     }
+}/*==========================
+ PREMIUM NAVBAR
+==========================*/
+
+.header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 60px;
+    background:rgba(0,80,40,.75);
+    backdrop-filter:blur(12px);
+    z-index:999;
+}
+
+.logo{
+    color:#fff;
+    font-size:28px;
+    font-weight:700;
+}
+
+.logo span{
+    color:#9be15d;
+}
+
+.navbar{
+    display:flex;
+    gap:30px;
+}
+
+.navbar a{
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.navbar a:hover{
+    color:#9be15d;
+}
+
+.menu-btn{
+    display:none;
+    color:white;
+    font-size:30px;
+    cursor:pointer;
+}
+
+@media(max-width:768px){
+
+.menu-btn{
+display:block;
+}
+
+.navbar{
+display:none;
+position:absolute;
+top:75px;
+left:0;
+width:100%;
+background:#0d5b31;
+flex-direction:column;
+padding:20px;
+}
+
+.navbar.active{
+display:flex;
+}
+
 }
