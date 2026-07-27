@@ -1,66 +1,54 @@
-const slides = document.querySelectorAll(".slide");
+// Detail page image modal
+document.addEventListener("DOMContentLoaded", function () {
+  const galleryImages = document.querySelectorAll(".detail-gallery img");
 
-let current = 0;
+  if (galleryImages.length) {
+    const modal = document.createElement("div");
+    modal.className = "image-modal";
+    modal.innerHTML = `
+      <div class="image-modal-backdrop"></div>
+      <div class="image-modal-content">
+        <button class="image-modal-close">&times;</button>
+        <img src="" alt="Gallery image" />
+      </div>
+    `;
+    document.body.appendChild(modal);
 
-setInterval(() => {
-    slides[current].classList.remove("active");
+    const modalImg = modal.querySelector("img");
+    const closeButton = modal.querySelector(".image-modal-close");
+    const backdrop = modal.querySelector(".image-modal-backdrop");
 
-    current = (current + 1) % slides.length;
-
-    slides[current].classList.add("active");
-}, 3000);// EchoTernia Treks - Form Handling & WhatsApp Integration
-
-document.addEventListener('DOMContentLoaded', function () {
-    const bookingForm = document.querySelector('.booking-form');
-
-    if (bookingForm) {
-        bookingForm.addEventListener('submit', function (e) {
-            e.preventDefault(); // पेज को रिफ़्रेश होने से रोकता है
-
-            // 1. फॉर्म से डेटा इकट्ठा करना
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const email = document.getElementById('email').value;
-            const trekSelect = document.getElementById('trek');
-            const trekName = trekSelect.options[trekSelect.selectedIndex].text;
-            const date = document.getElementById('date').value;
-            
-            const male = parseInt(document.getElementById('male').value) || 0;
-            const female = parseInt(document.getElementById('female').value) || 0;
-            const child = parseInt(document.getElementById('child').value) || 0;
-            const totalMembers = male + female + child;
-
-            const message = document.getElementById('message').value;
-
-            // कम से कम 1 सदस्य चुनना अनिवार्य है
-            if (totalMembers === 0) {
-                alert('कृपया कम से कम 1 सदस्य (Member) ज़रूर चुनें।');
-                return;
-            }
-
-            // 2. WhatsApp मैसेज तैयार करना
-            const whatsappNumber = "918894444201"; // ⚠️ यहाँ अपना 10-अंकों का असली WhatsApp नंबर डालें (बिना + के)
-
-            const textMessage = `*New Trek Booking Request - EchoTernia* 🏔️%0A%0A` +
-                `*Name:* ${name}%0A` +
-                `*Phone:* ${phone}%0A` +
-                `*Email:* ${email}%0A` +
-                `*Trek Name:* ${trekName}%0A` +
-                `*Date:* ${date}%0A` +
-                `----------------------------%0A` +
-                `*Members Breakdown:*%0A` +
-                `• Male: ${male}%0A` +
-                `• Female: ${female}%0A` +
-                `• Children: ${child}%0A` +
-                `*Total Travelers:* ${totalMembers}%0A` +
-                `----------------------------%0A` +
-                `*Special Requests:* ${message ? message : 'None'}`;
-
-            // 3. WhatsApp लिंक खोलना
-            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${textMessage}`;
-            
-            // नए टैब में WhatsApp खोलें
-            window.open(whatsappURL, '_blank');
-        });
+    function openModal(src, alt) {
+      modalImg.src = src;
+      modalImg.alt = alt;
+      modal.classList.add("open");
     }
+
+    function closeModal() {
+      modal.classList.remove("open");
+      modalImg.src = "";
+    }
+
+    galleryImages.forEach((img) => {
+      img.addEventListener("click", function () {
+        openModal(this.src, this.alt);
+      });
+    });
+
+    closeButton.addEventListener("click", closeModal);
+    backdrop.addEventListener("click", closeModal);
+  }
+
+  const bookLinks = document.querySelectorAll('a[href="#booking"], button.book, button.explore');
+  const bookingSection = document.querySelector("#booking");
+
+  if (bookingSection) {
+    bookLinks.forEach((link) => {
+      link.addEventListener("click", function (event) {
+        if (this.tagName.toLowerCase() === "a") return;
+        event.preventDefault();
+        bookingSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+  }
 });
